@@ -43,7 +43,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
-            <version>Finchley.SR1</version>
+            <version>1.4.7.RELEASE</version>
         </dependency>
 
 
