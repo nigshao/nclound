@@ -1,0 +1,38 @@
+server:
+  port: 4000
+
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://127.0.0.1:3000/eureka/
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka,http://eureka3002.com:3002/eureka
+  instance:
+    instance-id: customer-1
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
+
+spring:
+  application:
+    name: server-customer
+  #链路追踪
+  zipkin:
+    base-url: http://localhost:8000/
+    sender:
+      type: web
+    locator:
+      discovery:
+        enabled: true
+  sleuth:
+    sampler:
+      probability: 1  #默认0.1 #request采样的数量 默认是0.1 也即是10% 顾名思义 采取10%的请求数据 因为在分布式系统中，数据量可能会非常大，因此采样非常重要。我们示例数据少最好配置为1全采样
+
+
+#降级 超时 无响应等 走客户端降级方法
+#熔断 几秒内有几次无响应  走降逻辑
+#限流 限制调摸个服务的的线程数
+feign:
+  hystrix:
+    enabled: true  #是否开启 hystrix服务熔断
+
+

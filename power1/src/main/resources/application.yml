@@ -1,0 +1,24 @@
+server:
+  port: 5000
+
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://127.0.0.1:3000/eureka/
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka,http://eureka3002.com:3002/eureka
+  instance:
+    instance-id: power-1
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10  #客户端多久发送一次心跳给注册中心
+    leaseExpirationDurationInSeconds: 30 #多久没发送心跳表示宕机
+
+spring:
+  application:
+    name: server-power  #名字配置为一样  然后集群instance-id的名字不一样 这样负载均衡先找到一样的名字，再根据不同的instance-id 做负载均衡
+#链路追踪
+  zipkin:
+    base-url: http://localhost:8000
+  sleuth:
+    sampler:
+      probability: 1  #默认0.1 #request采样的数量 默认是0.1 也即是10% 顾名思义 采取10%的请求数据 因为在分布式系统中，数据量可能会非常大，因此采样非常重要。我们示例数据少最好配置为1全采样
+

@@ -1,0 +1,20 @@
+
+#在zipkin2.7.x以后便不支持自定义服务器需要使用官方的版本或者Docker 但是如果还是要#用的话就得加上这个配置
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+server:
+  port: 8000
+
+#spring:
+  #application:
+    #name: zipkin
+#eureka:
+  #client:
+    #service-url:
+      #defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka,http://eureka3002.com:3002/eureka
+    #region: default
+    #registry-fetch-interval-seconds: 5
+
