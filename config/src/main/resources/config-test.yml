@@ -1,2 +1,14 @@
+spring:
+  profiles:
+    active: dev
 user:
   name: nsnb
+
+---
+
+
+spring:
+  profiles:
+    active: pro
+user:
+  name: nsnb--pro
