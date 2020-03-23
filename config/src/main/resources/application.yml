@@ -1,6 +1,10 @@
-
 server:
   port: 8080
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://127.0.0.1:3000/eureka/
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka,http://eureka3002.com:3002/eureka
 spring:
   application:
     name: config-test
@@ -10,6 +14,9 @@ spring:
       git:
         uri: https://github.com/nigshao/nclound.git
         search-paths: /config/src/main/resources #配置文件在github上的地址,这里要指到具体地址
+        username: 1515467166@qq.com
+        password: nsb539789
+
          #clone-on-start: true #启动时就clone仓库到本地，默认是在配置被首次请求时，config server才会clone git仓库
                #native:
                 #search-locations: classpath:/config #若配置中心在本地，本地的地址
