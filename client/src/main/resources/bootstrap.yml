@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    config:
+      profile: default  #对应配置文件的环境
+      label: master
+      uri: http://localhost:8080
+      discovery:
+        enabled: true
+        service-id: config-server  #与配种中心的实例名一致，知道调用哪个配置中心
+      name: client-customer
+       #与自己再配置中心的配置名字一致，知道调用哪个配置文件
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://127.0.0.1:3000/eureka/
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka,http://eureka3002.com:3002/eureka
+  instance:
+    instance-id: customer-1
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
