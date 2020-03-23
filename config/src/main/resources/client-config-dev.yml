@@ -30,5 +30,5 @@ feign:
     enabled: true  #是否开启 hystrix服务熔断
 
 testUser:
-  name: test--name
+  name: test--name-dev
   age: 20
