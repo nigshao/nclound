@@ -13,7 +13,7 @@ spring:
     server:
       git:
         uri: https://github.com/nigshao/nclound.git
-        search-paths: /config/src/main/resources #配置文件在github上的地址,这里要指到具体地址
+        search-paths: /config/src/main/resources/otherConfig #配置文件在github上的地址,这里要指到具体地址
         username: 1515467166@qq.com
         password: nsb539789
 
