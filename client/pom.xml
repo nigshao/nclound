@@ -3,10 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>ns.clound.plubic</groupId>
+        <artifactId>nclound</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.example</groupId>
     <artifactId>client</artifactId>
@@ -39,23 +38,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>2.0.1.RELEASE</version>
         </dependency>
-
-        <dependency>
-            <groupId>ns.clound.plubic</groupId>
-            <artifactId>comon</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>2.0.2.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+
         <dependency>
             <groupId>com.netflix.feign</groupId>
             <artifactId>feign-httpclient</artifactId>
@@ -64,18 +61,20 @@
         <!-- 整合链路 sleuth zipkin-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-            <version>2.0.2.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
-            <version>2.0.2.RELEASE</version>
         </dependency>
         <!--整合链路调用结束 -->
-
-
-
+        <dependency>
+            <groupId>ns.clound.plubic</groupId>
+            <artifactId>comon</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- 云配置依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <!--云配置结束 -->
     </dependencies>
 
     <build>
@@ -86,6 +85,8 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- 私服配置 与数据库的一致-->
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>

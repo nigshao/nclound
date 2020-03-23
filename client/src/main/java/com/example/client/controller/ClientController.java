@@ -26,20 +26,9 @@ public class ClientController {
 
     @Value("${testUser.name}")
     private String name;
-
-
+    
     @Value("${testUser.age}")
     private Integer age;
-
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
 
 
     //rabbion  调用
@@ -60,6 +49,14 @@ public class ClientController {
     @GetMapping("/testName.do")
     private Object testName() {
         return "name: " + name + "age: " + age;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getName() {
